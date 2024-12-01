@@ -6,8 +6,9 @@
 
 using std::cout;
 using std::endl;
+using std::vector;
 
-void readInput(std::vector<long> &l1, std::vector<long> &l2)
+void readInput(vector<long> &l1, vector<long> &l2)
 {
 	ReadFile inf("input.txt");
 	std::string ss;
@@ -24,17 +25,9 @@ void readInput(std::vector<long> &l1, std::vector<long> &l2)
 	std::sort(l2.begin(), l2.end());
 }
 
-long count(long val, std::vector<long> &ll)
-{
-	long cnt = 0;
-	for(long i : ll)
-		if(i == val) cnt++;
-	return cnt;
-}
-
 int main()
 {
-	std::vector<long> l1, l2;
+	vector<long> l1, l2;
 	readInput(l1, l2);
 
 	long answer1 = 0;
@@ -42,10 +35,10 @@ int main()
 	for(long i = 0; i < l1.size(); i++)
 	{
 		answer1 += abs(l1[i] - l2[i]);;
-		answer2 += l1[i] * count(l1[i], l2);
+		answer2 += l1[i] * std::count(l2.begin(), l2.end(), l1[i]);
 	}
-	std::cout << "PART1 answer = " << answer1 << std::endl;
-	std::cout << "PART2 answer = " << answer2 << std::endl;
+	cout << "PART1 answer = " << answer1 << endl;
+	cout << "PART2 answer = " << answer2 << endl;
 
 	return 0;
 }
