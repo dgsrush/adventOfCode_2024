@@ -33,7 +33,6 @@ void readInput()
 	s1.clear();
 	s2.clear();
 	ReadFile inf("input.txt");
-	//ReadFile inf("test_input.txt");
 	string ss;
 	while(inf.readLine(ss))
 	{
@@ -95,7 +94,7 @@ void part1()
 	ullong answer1 = s1.size();
 	if(answer1 == 0) answer1 = s2.size();
 
-	cout << "PART1 answer = " << answer1 << endl; //198089
+	cout << "PART1 answer = " << answer1 << endl;
 }
 
 ullong calcP2(ullong val, int level)
@@ -130,7 +129,7 @@ void part2()
 	ullong answer2 = 0;
 	for(ullong j : s1)
 		answer2 += calcP2(j, 75);
-	cout << "PART2 answer = " << (ullong)answer2 << endl; //236302670835517
+	cout << "PART2 answer = " << answer2 << endl;
 }
 
 int main()
